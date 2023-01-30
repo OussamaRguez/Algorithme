@@ -1,0 +1,35 @@
+ALGORITHM
+
+CONSTANTS
+    vowels : STRING := "aeiouyAEIOUY"
+
+VARIABLES
+    words_num, vowels_num, sentence_length : INTEGER
+    input, x : STRING
+
+BEGIN
+    WRITE "Enter a sentence: "
+    READ input
+
+    sentence_length <- LENGTH(input) - 1
+
+    IF input[sentence_length] <> "." THEN
+        WRITE "Invalid sentence."
+    ELSE
+        words_num <- 0
+        vowels_num <- 0
+
+        FOR i <- 0 TO sentence_length DO
+            x <- input[i]
+            IF x = " " THEN
+                words_num <- words_num + 1
+            ELSE IF x IN vowels THEN
+                vowels_num <- vowels_num + 1
+            END IF
+        END FOR
+
+        WRITE sentence_length
+        WRITE vowels_num
+        WRITE words_num
+    END IF
+END
